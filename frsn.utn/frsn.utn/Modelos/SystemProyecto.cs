@@ -5,10 +5,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using TechInnovation.Enums;
-using TechInnovation.Modelos;
+using frsn.utn.Enums;
+using frsn.utn.Modelos;
 
-namespace TechInnovation.Modelos
+namespace frsn.utn.Modelos
 {
     public class SystemProyectos
     {

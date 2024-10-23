@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TechInnovation.Enums;
+using frsn.utn.Enums;
 
-namespace TechInnovation.Modelos
+namespace frsn.utn.Modelos
 {
     public abstract class Proyecto
     {

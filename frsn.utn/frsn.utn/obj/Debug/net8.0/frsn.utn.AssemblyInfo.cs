@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("frsn.utn")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa4aafa5a2be03727221f83ea91f18416368a0c9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c8b5f3fabb53c3a422c542d206fe9bb18ea3c9c")]
 [assembly: System.Reflection.AssemblyProductAttribute("frsn.utn")]
 [assembly: System.Reflection.AssemblyTitleAttribute("frsn.utn")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
