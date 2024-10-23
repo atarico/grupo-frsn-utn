@@ -126,6 +126,19 @@ namespace frsn.utn.Modelos
             }
         }
 
+        public static void MostrarProyectos()
+        {
+            Console.WriteLine("Lista de Proyectos Moviles: ");
+            foreach (var proyecto in proyectosM)
+            {
+                Console.WriteLine(proyecto);
+            }
+            Console.WriteLine("\nLista de proyectos Web: ");
+            foreach (var proyecto in proyectosW)
+            {
+                Console.WriteLine(proyecto);
+            }
+        }
         public static void ModificarProyecto()
         {
             Console.WriteLine("Vas a modificar un proyecto Web o uno Movil?\n" +
@@ -334,6 +347,76 @@ namespace frsn.utn.Modelos
             }
             else { Console.WriteLine("Has ingresado un numero fuera de rango."); }
 
+        }
+        public static void CargarDatos()
+        {
+            if (File.Exists(archivoProyectosW))
+            {
+                using (StreamReader lectorDeArchivo = new StreamReader(archivoProyectosW))
+                {
+                    while (!lectorDeArchivo.EndOfStream)
+                    {
+                        string[] datosDelArchivo = lectorDeArchivo.ReadLine().Split(SEPARADOR);
+
+                        string nombre = datosDelArchivo[0];
+
+                        if (Enum.TryParse(datosDelArchivo[1], out TipoDesarrollo tipoDesarrollo))
+                        {
+                            if (Enum.TryParse(datosDelArchivo[2], out EstadoProyecto estadoProyecto))
+                            {
+                                string tecnologia = datosDelArchivo[3];
+                                int cantidad = int.Parse(datosDelArchivo[4]);
+                                DateOnly fecha = DateOnly.Parse(datosDelArchivo[5]);
+
+                                ProyectoWeb proyectoWebCargado = new ProyectoWeb(nombre, tecnologia, cantidad, fecha);
+                                proyectoWebCargado.TipoDesarrollo = tipoDesarrollo;
+                                proyectoWebCargado.EstadoProyecto = estadoProyecto;
+                                proyectosW.Add(proyectoWebCargado);
+
+                            }
+                            else { Console.WriteLine("No se ha podido convertir un enum {EstadoProyecto}"); }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No se ha podido convertir un enum {TipoDesarrollo}");
+                        }
+                    }
+                }
+            }
+            if (File.Exists(archivoProyectosM))
+            {
+                using (StreamReader lectorDeArchivo = new StreamReader(archivoProyectosM))
+                {
+                    while (!lectorDeArchivo.EndOfStream)
+                    {
+                        string[] datosDelArchivo = lectorDeArchivo.ReadLine().Split(SEPARADOR);
+
+                        string nombre = datosDelArchivo[0];
+
+                        if (Enum.TryParse(datosDelArchivo[1], out TipoDesarrollo tipoDesarrollo))
+                        {
+                            if (Enum.TryParse(datosDelArchivo[2], out EstadoProyecto estadoProyecto))
+                            {
+                                int cantidad = int.Parse(datosDelArchivo[3]);
+                                DateOnly fecha = DateOnly.Parse(datosDelArchivo[4]);
+                                List<string> plataformas = new List<string>(datosDelArchivo[5].Split(','));
+
+                                ProyectoMovil proyectoMovilCargado = new ProyectoMovil(nombre, cantidad, fecha);
+                                proyectoMovilCargado.TipoDesarrollo = tipoDesarrollo;
+                                proyectoMovilCargado.EstadoProyecto = estadoProyecto;
+                                proyectoMovilCargado.Plataformas = plataformas;
+                                proyectosM.Add(proyectoMovilCargado);
+
+                            }
+                            else { Console.WriteLine("No se ha podido convertir un enum {EstadoProyecto}"); }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No se ha podido convertir un enum {TipoDesarrollo}");
+                        }
+                    }
+                }
+            }
         }
     }
 }
