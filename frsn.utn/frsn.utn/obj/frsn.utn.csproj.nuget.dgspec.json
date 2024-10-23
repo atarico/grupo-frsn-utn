@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aitor\\Desktop\\grupo-frsn-utn\\frsn.utn\\frsn.utn\\frsn.utn.csproj": {}
+    "C:\\Users\\User\\OneDrive\\Escritorio\\grupo-frsn-utn\\frsn.utn\\frsn.utn\\frsn.utn.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aitor\\Desktop\\grupo-frsn-utn\\frsn.utn\\frsn.utn\\frsn.utn.csproj": {
+    "C:\\Users\\User\\OneDrive\\Escritorio\\grupo-frsn-utn\\frsn.utn\\frsn.utn\\frsn.utn.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aitor\\Desktop\\grupo-frsn-utn\\frsn.utn\\frsn.utn\\frsn.utn.csproj",
+        "projectUniqueName": "C:\\Users\\User\\OneDrive\\Escritorio\\grupo-frsn-utn\\frsn.utn\\frsn.utn\\frsn.utn.csproj",
         "projectName": "frsn.utn",
-        "projectPath": "C:\\Users\\aitor\\Desktop\\grupo-frsn-utn\\frsn.utn\\frsn.utn\\frsn.utn.csproj",
-        "packagesPath": "C:\\Users\\aitor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aitor\\Desktop\\grupo-frsn-utn\\frsn.utn\\frsn.utn\\obj\\",
+        "projectPath": "C:\\Users\\User\\OneDrive\\Escritorio\\grupo-frsn-utn\\frsn.utn\\frsn.utn\\frsn.utn.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\OneDrive\\Escritorio\\grupo-frsn-utn\\frsn.utn\\frsn.utn\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\aitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
