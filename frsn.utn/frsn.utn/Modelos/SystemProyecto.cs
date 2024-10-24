@@ -125,7 +125,6 @@ namespace frsn.utn.Modelos
                 proyectosM.Add(miProyectoMovil);
             }
         }
-
         public static void MostrarProyectos()
         {
             Console.WriteLine("Lista de Proyectos Moviles: ");
@@ -145,10 +144,8 @@ namespace frsn.utn.Modelos
                 "[1] Web\n" +
                 "[2] Movil\n");
             int opcion = int.Parse(Console.ReadLine());
-
             if (opcion == 1)
             {
-
                 Console.WriteLine("Ingrese el nombre del proyecto Web que desea modificar: ");
                 string miProyecto = Console.ReadLine();
                 ProyectoWeb proyectoChosen = proyectosW.Find(p => p.Nombre == miProyecto);
@@ -347,6 +344,55 @@ namespace frsn.utn.Modelos
             }
             else { Console.WriteLine("Has ingresado un numero fuera de rango."); }
 
+        }
+        public static void EliminarProyecto()
+        {
+            Console.WriteLine("Ingrese el nombre del proyecto que deseas eliminar: ");
+            string proyectoAEliminar = Console.ReadLine();
+            ProyectoWeb proyectoChosen = proyectosW.Find(p => p.Nombre == proyectoAEliminar);
+            if (proyectoChosen == null)
+            {
+                ProyectoMovil proyectoChosenn = proyectosM.Find(p => p.Nombre == proyectoAEliminar);
+                if (proyectoChosenn == null) { Console.WriteLine("El proyecto que has ingresado no existe o no esta registrado."); }
+                else
+                {
+                    proyectosM.Remove(proyectoChosenn);
+                    Console.WriteLine("Proyecto eliminado!");
+                }
+            }
+            else
+            {
+                proyectosW.Remove(proyectoChosen);
+                Console.WriteLine("Proyecto eliminado!");
+            }
+        }
+        public static void GuardarCambios()
+        {
+            using (StreamWriter escritorDeArchivo = new StreamWriter(archivoProyectosW))
+            {
+                foreach (var proyecto in proyectosW)
+                {
+                    escritorDeArchivo.WriteLine($"{proyecto.Nombre}{SEPARADOR}" +
+                        $"{proyecto.TipoDesarrollo}{SEPARADOR}" +
+                        $"{proyecto.EstadoProyecto}{SEPARADOR}" +
+                        $"{proyecto.Tecnologia}{SEPARADOR}" +
+                        $"{proyecto.CantDevelopers}{SEPARADOR}" +
+                        $"{proyecto.FechaInicio}{SEPARADOR}");
+                }
+            }
+            using (StreamWriter escritorDeArchivo = new StreamWriter(archivoProyectosM))
+            {
+                foreach (var proyecto in proyectosM)
+                {
+                    escritorDeArchivo.WriteLine($"{proyecto.Nombre}{SEPARADOR}" +
+                        $"{proyecto.TipoDesarrollo}{SEPARADOR}" +
+                        $"{proyecto.EstadoProyecto}{SEPARADOR}" +
+                        $"{proyecto.CantDevelopers}{SEPARADOR}" +
+                        $"{proyecto.FechaInicio}{SEPARADOR}" +
+                        $"{proyecto.Plataformas}");
+                }
+            }
+            Console.WriteLine("Cambios guardados!");
         }
         public static void CargarDatos()
         {
